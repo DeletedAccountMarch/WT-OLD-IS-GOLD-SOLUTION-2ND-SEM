@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+<body>
+    <form action="#" method="get" onsubmit="return fun()">
+        <span id="alert"></span>
+        <input type="email" id="mail">
+        <input type="text" id="num">
+        <input type="submit">
+    </form>
+
+    <script>
+
+        const fun = ()=>{
+            var alert = document.getElementById('alert');
+            let email = document.getElementById('mail').value;
+            let num = document.getElementById('num').value;
+            var pattern = /^([A-Za-z0-9]+@[a-z]+[/.][A-Za-z]+)$/;
+            var phone = /[/+][9][7][7][9][0-9]{9}/;
+            result = email.search(pattern);
+            if(result>=0){
+                alert.innerText="correct format of email ";
+                resnum = num.search(phone);
+                if(resnum>=0){
+                    alert.innerText="correct format of phone number also ";
+                    return true;
+                }
+                
+            } else{
+                alert.innerText="incorrect format of email";
+                return false;
+            }
+            
+        }
+    </script>
+</body>
+</html>
