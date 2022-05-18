@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <style>
+        p{
+            color:white;
+            padding:20px;
+            cursor: pointer;
+            position:absolute;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <p id="fordrag"> Content 1</p>
+
+    </div>
+
+    <script>
+       
+       var elem = document.getElementById("fordrag");
+
+       elem.addEventListener("mousedown",function emdown(){
+
+            document.addEventListener("mousemove",function emmove(e){
+
+                var x = e.clientX -50;
+                var y = e.clientY -50;
+
+                elem.style.left = x + "px";
+                elem.style.top = y + "px";
+
+                document.addEventListener("mouseup",function(){
+
+                    document.removeEventListener("mousemove",emmove);
+
+                });
+
+            });
+
+       });
+
+    </script>
+</body>
+</html>
